@@ -30,9 +30,12 @@
     xhr.addEventListener('load', function(){
       var result = JSON.parse(xhr.responseText)
       console.log(result)
-      document.querySelector('.ajax_sent').innerHTML = result.email
+      var resultDiv = document.querySelector('.ajax_sent');
+      if(result.result !== 'ok')
+        resultDiv.innerHTML = "not found...";
+      else
+        resultDiv.innerHTML = result.name;
     })
-
   }
 
 </script>
